@@ -1,20 +1,12 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
     <>
       <Navbar />
-
-      <main>
-        <h2>Welcome Back!</h2>
-
-        <button>Add Expense</button>
-
-        <h3>Recent Transactions</h3>
-
-        <p>No transactions yet.</p>
-      </main>
+      <Dashboard />
     </>
   );
 }
