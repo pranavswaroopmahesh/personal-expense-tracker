@@ -1,56 +1,120 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
-}
-
-nav {
-  background-color: #2e7d32;
-  color: white;
-  padding: 20px;
-  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f4f6;
 }
 
 .dashboard {
-  padding: 30px;
+  width: 900px;
+  margin: auto;
+  padding: 40px;
 }
 
 .cards {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
-  margin: 20px 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .card {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 180px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.card h3 {
-  margin: 0;
-  font-size: 18px;
+.form {
+  display: flex;
+  gap: 10px;
 }
 
-.card p {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2e7d32;
+input,
+select,
+button {
+  padding: 10px;
+  font-size: 16px;
 }
 
-.add-btn {
-  background-color: #2e7d32;
+button {
+  cursor: pointer;
+}
+.form {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.form input,
+.form select,
+.form button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+h2 {
+  text-align: center;
+}
+.history-table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.history-table th {
+  background: #333;
+  color: white;
+}
+.form {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.form input,
+.form select,
+.form button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.history-table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.history-table th {
+  background: #333;
+  color: white;
+}
+.delete-btn {
+  background: crimson;
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 8px 15px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
-.add-btn:hover {
-  background-color: #256428;
+.delete-btn:hover {
+  opacity: 0.85;
 }

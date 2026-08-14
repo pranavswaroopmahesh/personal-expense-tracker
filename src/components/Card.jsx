@@ -1,8 +1,8 @@
-function Card(props) {
+function Card({ title, amount }) {
   return (
     <div className="card">
-      <h3>{props.title}</h3>
-      <p>{props.amount}</p>
+      <h3>{title}</h3>
+      <h2>₹{amount}</h2>
     </div>
   );
 }
