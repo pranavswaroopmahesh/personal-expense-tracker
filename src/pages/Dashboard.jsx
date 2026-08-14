@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import ExpenseForm from "../components/ExpenseForm";
 import SummaryCards from "../components/SummaryCards";
 import TransactionTable from "../components/TransactionTable";
+import SearchBar from "../components/SearchBar";
+import ExpensePieChart from "../components/ExpensePieChart";
 
 function Dashboard() {
   const salary = 50000;
@@ -12,15 +14,31 @@ function Dashboard() {
     return savedTransactions
       ? JSON.parse(savedTransactions)
       : [
-          { id: 1, category: "food", amount: 350 },
-          { id: 2, category: "fuel", amount: 1200 },
-          { id: 3, category: "shopping", amount: 4500 },
+          {
+            id: 1,
+            category: "food",
+            amount: 350,
+            date: "14/08/2026",
+          },
+          {
+            id: 2,
+            category: "fuel",
+            amount: 1200,
+            date: "14/08/2026",
+          },
+          {
+            id: 3,
+            category: "shopping",
+            amount: 4500,
+            date: "14/08/2026",
+          },
         ];
   });
 
   const [expense, setExpense] = useState("");
   const [category, setCategory] = useState("food");
   const [editId, setEditId] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     localStorage.setItem(
@@ -48,6 +66,10 @@ function Dashboard() {
 
   const remainingBalance = salary - totalExpenses;
 
+  const filteredTransactions = transactions.filter((item) =>
+    item.category.toLowerCase().includes(search.toLowerCase())
+  );
+
   function addExpense() {
     const amount = Number(expense);
 
@@ -57,7 +79,11 @@ function Dashboard() {
       setTransactions(
         transactions.map((item) =>
           item.id === editId
-            ? { ...item, category, amount }
+            ? {
+                ...item,
+                category,
+                amount,
+              }
             : item
         )
       );
@@ -70,6 +96,7 @@ function Dashboard() {
           id: Date.now(),
           category,
           amount,
+          date: new Date().toLocaleDateString("en-GB"),
         },
       ]);
     }
@@ -113,9 +140,19 @@ function Dashboard() {
       <h2>Total Expenses : ₹{totalExpenses}</h2>
 
       <h2>Remaining Balance : ₹{remainingBalance}</h2>
+      <ExpensePieChart
+  food={food}
+  fuel={fuel}
+  shopping={shopping}
+/>
+
+      <SearchBar
+        search={search}
+        setSearch={setSearch}
+      />
 
       <TransactionTable
-        transactions={transactions}
+        transactions={filteredTransactions}
         editExpense={editExpense}
         deleteExpense={deleteExpense}
       />
